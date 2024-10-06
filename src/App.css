@@ -1,38 +1,109 @@
-.App {
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-image: url('img3.wallspic.com-monochrome-atmosphere-sky-design-black-3840x2160.jpg');
+  background-size: cover; 
+  background-repeat: no-repeat; 
+  background-position: center; 
+  background-attachment: fixed; 
+  min-height: 100vh; 
+  padding: 20px;
+}
+
+h1 {
   text-align: center;
+  color: #ffffff;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+#news-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); 
+  gap: 20px; 
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.news-item {
+  border: 1px solid #ff5100; 
+  border-radius: 30px; 
+  overflow: hidden; 
+  background-color: #f1e8e86c; 
+  cursor: pointer; 
+  transition: transform 0.3s; 
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.news-item h2 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #000000; 
+  text-decoration: none; 
 }
 
-.App-link {
-  color: #61dafb;
+.news-item p {
+  font-size: 14px;
+  margin-bottom: 10px;
+  color: #ffffff; 
+  text-decoration: none;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.news-item a {
+  color: #333; 
+  text-decoration: none; 
+}
+
+.news-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 10px rgba(255, 136, 0, 0.8),
+              0 0 20px rgba(245, 149, 5, 0.8),
+              0 0 30px rgb(255, 1, 1),
+              0 0 40px rgba(255, 255, 255, 0.8); 
+  border-color: rgba(255, 255, 255, 0.8);
+}
+
+.news-image {
+  width: 100%; 
+  height: 150px; 
+  object-fit: cover; 
+  border-radius: 35px;
+}
+
+.logo {
+  text-align: center; 
+  margin-bottom: 20px; 
+}
+
+.logo-image {
+  max-width: 100%; 
+  height: auto; 
+  width: 150px; 
+  border-radius: 80px;
+}
+
+.search-container {
+  display: flex; 
+  justify-content: center; 
+  margin: 20px 0; 
+}
+
+#keyword {
+  padding: 10px; 
+  margin-right: 10px; 
+  border: 1px solid #dddddd; 
+  border-radius: 4px; 
+  font-size: 16px; 
+  border-color: #ff5100;
+  background-color: #16121279;
+}
+
+#searchBtn {
+  background: none; 
+  border: none; 
+  padding: 0; 
+  cursor: pointer; 
+}
+
+#searchBtn:hover {
+  color: rgb(255, 0, 0); 
 }
