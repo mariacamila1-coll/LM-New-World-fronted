@@ -1,6 +1,7 @@
 html, body {
   height: 100%;
   margin: 0;
+  padding: 0; /* Elimina el padding predeterminado */
 }
 
 body {
@@ -11,7 +12,7 @@ body {
   background-position: center; 
   background-attachment: fixed; 
   min-height: 100vh; 
-  padding: 20px;
+  padding: 20px; /* Asegúrate de ajustar esto para que no interfiera con el contenedor superior */
 }
 
 h1 {
@@ -106,4 +107,40 @@ h1 {
 
 #searchBtn:hover {
   color: rgb(255, 0, 0); 
+}
+
+/* Contenedor superior */
+.top-container {
+  background-color: white;       /* Fondo blanco */
+  width: 100vw;                  /* 100% del ancho de la pantalla */
+  padding: 10px 0;               /* Espaciado dentro del contenedor */
+  text-align: center;            /* Centra el texto */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Añade una sombra ligera */
+  position: fixed;               /* Fijo en la parte superior */
+  top: 0;                        /* Posición en el margen superior de la página */
+  left: 0;                       /* Ocupa desde la izquierda */
+  z-index: 1000;                 /* Asegura que esté por encima del contenido */
+}
+
+/* Otros estilos */
+.App {
+  text-align: center;
+  padding-top: 70px; /* Añade margen superior para evitar que el contenido quede debajo del top-container */
+}
+
+.logo-image {
+  width: 150px; /* Ajusta el tamaño del logo si es necesario */
+}
+
+.search-container {
+  margin: 20px 0;
+}
+
+.news-item {
+  margin: 20px 0;
+}
+
+.news-image {
+  max-width: 100%;
+  height: auto;
 }
