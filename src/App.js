@@ -1,11 +1,10 @@
-// src/App.js
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import axios from 'axios';
 import './App.css';
-import logo from './components/Logo.jpg'; // Importa la imagen
-import About from './About'; // Asegúrate de que esta ruta sea correcta
-import Login from './Login'; // Asegúrate de que esta ruta sea correcta
+import logo from './components/Logo.jpg'; 
+import About from './About'; 
+import Login from './Login'; 
 
 function App() {
     const [keyword, setKeyword] = useState('');

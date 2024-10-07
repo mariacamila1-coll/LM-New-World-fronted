@@ -1,12 +1,57 @@
-// src/Login.js
-import React from 'react';
+import React, { useState } from 'react';
+import axios from 'axios';
 
 function Login() {
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [username, setUsername] = useState('');
+    const [isRegistering, setIsRegistering] = useState(false);
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        const endpoint = isRegistering ? '/api/register' : '/api/login';
+        const data = isRegistering ? { username, email, password } : { email, password };
+
+        try {
+            const response = await axios.post(`http://localhost:5000${endpoint}`, data);
+            alert(response.data.message);
+        } catch (error) {
+            alert(error.response?.data?.error || 'An error occurred');
+        }
+    };
+
     return (
         <div>
-            <h1>Login</h1>
-            <p>Formulario de inicio de sesión.</p>
-            {/* Aquí puedes agregar el formulario de inicio de sesión */}
+            <h2>{isRegistering ? 'Register' : 'Login'}</h2>
+            <form onSubmit={handleSubmit}>
+                {isRegistering && (
+                    <input 
+                        type="text" 
+                        placeholder="Username" 
+                        value={username}
+                        onChange={(e) => setUsername(e.target.value)} 
+                        required 
+                    />
+                )}
+                <input 
+                    type="email" 
+                    placeholder="Email" 
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)} 
+                    required 
+                />
+                <input 
+                    type="password" 
+                    placeholder="Password" 
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)} 
+                    required 
+                />
+                <button type="submit">{isRegistering ? 'Register' : 'Login'}</button>
+            </form>
+            <button onClick={() => setIsRegistering(!isRegistering)}>
+                {isRegistering ? 'Switch to Login' : 'Switch to Register'}
+            </button>
         </div>
     );
 }
