@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import axios from 'axios';
 import './App.css';
 import logo from './components/Logo.jpg'; 
 import About from './About'; 
 import Login from './Login'; 
+import Prensa from './Prensa'; // Importa el componente Prensa
 
 function App() {
+    const [isAuthenticated, setIsAuthenticated] = useState(false); // Estado de autenticación
     const [keyword, setKeyword] = useState('');
     const [news, setNews] = useState([]);
 
@@ -24,7 +26,14 @@ function App() {
             <div className="App">
                 <Routes>
                     <Route path="/about" element={<About />} />
-                    <Route path="/login" element={<Login />} />
+                    <Route 
+                        path="/login" 
+                        element={<Login setIsAuthenticated={setIsAuthenticated} />} 
+                    />
+                    <Route 
+                        path="/prensa" 
+                        element={isAuthenticated ? <Prensa /> : <Navigate to="/login" />} 
+                    />
                     <Route 
                         path="/" 
                         element={
@@ -72,4 +81,4 @@ function App() {
     );
 }
 
-export default App; 
+export default App;

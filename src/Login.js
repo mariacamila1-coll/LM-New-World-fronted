@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
-function Login() {
+function Login({ setIsAuthenticated }) {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [username, setUsername] = useState('');
     const [isRegistering, setIsRegistering] = useState(false);
+    const navigate = useNavigate(); // Para redireccionar después del login
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -15,6 +17,10 @@ function Login() {
         try {
             const response = await axios.post(`http://localhost:5000${endpoint}`, data);
             alert(response.data.message);
+            if (!isRegistering) {
+                setIsAuthenticated(true); // Establecer autenticación
+                navigate('/prensa'); // Redirigir a Prensa
+            }
         } catch (error) {
             alert(error.response?.data?.error || 'An error occurred');
         }
