@@ -144,3 +144,83 @@ h1 {
   max-width: 100%;
   height: auto;
 }
+
+
+
+.notification {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 15px;
+  border-radius: 5px;
+  z-index: 1000;
+  color: #ffffff;
+}
+
+.notification {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 15px;
+  border-radius: 5px;
+  z-index: 1000;
+  color: #ffffff;
+  border: 2px solid;
+  animation: neon-flash 0.2s infinite alternate;
+}
+
+/* Notificación de éxito (verde) */
+.notification.success {
+  background-color: #d4edda;
+  color: #155724;
+  border-color: #28a745;
+  animation-name: neon-flash-success;
+}
+
+/* Notificación de error del servidor (amarillo) */
+.notification.server-error {
+  background-color: #fff3cd;
+  color: #856404;
+  border-color: #ffc107;
+  animation-name: neon-flash-warning;
+}
+
+/* Notificación de falta de entrada (rojo) */
+.notification.input-error {
+  background-color: #f8d7da;
+  color: #721c24;
+  border-color: #dc3545;
+  animation-name: neon-flash-error;
+}
+
+/* Animación de neón para éxito (verde) */
+@keyframes neon-flash-success {
+  0% {
+      box-shadow: 0 0 5px #28a745, 0 0 10px #28a745, 0 0 20px #28a745;
+  }
+  100% {
+      box-shadow: 0 0 15px #85e085, 0 0 30px #85e085, 0 0 45px #85e085;
+  }
+}
+
+/* Animación de neón para error de servidor (amarillo) */
+@keyframes neon-flash-warning {
+  0% {
+      box-shadow: 0 0 5px #ffc107, 0 0 10px #ffc107, 0 0 20px #ffc107;
+  }
+  100% {
+      box-shadow: 0 0 15px #ffe066, 0 0 30px #ffe066, 0 0 45px #ffe066;
+  }
+}
+
+/* Animación de neón para error de entrada (rojo) */
+@keyframes neon-flash-error {
+  0% {
+      box-shadow: 0 0 5px #dc3545, 0 0 10px #dc3545, 0 0 20px #dc3545;
+  }
+  100% {
+      box-shadow: 0 0 15px #ff6b6b, 0 0 30px #ff6b6b, 0 0 45px #ff6b6b;
+  }
+}
+
+
