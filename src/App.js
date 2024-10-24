@@ -51,8 +51,7 @@ function App() {
     };
 
     useEffect(() => {
-        // Puedes usar esto para buscar noticias al montar el componente si lo deseas
-        // fetchNews('tecnología');
+        
     }, []);
 
     // Define la clase de la notificación en función del estado
