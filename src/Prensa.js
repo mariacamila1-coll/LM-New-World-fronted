@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import './Prensa.css';
+import logo from './components/Logo.jpg';
 
 const Prensa = () => {
     const [news, setNews] = useState([]);
@@ -32,7 +34,7 @@ const Prensa = () => {
             description,
             image_url: url
         };
-        
+
         try {
             if (editId) {
                 await axios.put(`http://localhost:5000/api/news/${editId}`, newsData);
@@ -71,51 +73,57 @@ const Prensa = () => {
     };
 
     return (
-        <div className="prensa-container">
-            <h2>Gestión de Noticias</h2>
-            <form onSubmit={handleSubmit} className="form-container">
-                <input
-                    type="text"
-                    placeholder="Título"
-                    value={title}
-                    onChange={(e) => setTitle(e.target.value)}
-                    required
-                />
-                <input
-                    type="text"
-                    placeholder="Descripción"
-                    value={description}
-                    onChange={(e) => setDescription(e.target.value)}
-                    required
-                />
-                <input
-                    type="text"
-                    placeholder="URL de la imagen"
-                    value={url}
-                    onChange={(e) => setUrl(e.target.value)}
-                    required
-                />
-                <button type="submit">{editId ? 'Actualizar' : 'Crear'}</button>
-            </form>
-
-            <div id="news-container">
-                {news.length > 0 ? (
-                    news.map((newsItem) => (
-                        <div key={newsItem.id} className="news-item">
-                            <h2>{newsItem.title}</h2>
-                            <p>{newsItem.description}</p>
-                            <img src={newsItem.image_url} alt={newsItem.title} className="news-image" />
-                            <a href={newsItem.image_url} target="_blank" rel="noopener noreferrer">Ver más</a>
-                            <button onClick={() => handleEdit(newsItem)}>Editar</button>
-                            <button onClick={() => handleDelete(newsItem.id)}>Eliminar</button>
-                        </div>
-                    ))
-                ) : (
-                    <p>No hay noticias disponibles.</p>
-                )}
+        <div className="parent-container"> {/* Contenedor principal */}
+            <div className="header-container">
+                <img src={logo} alt="Logo LM News World" className="logo-image" />
+                
+            </div>
+            
+            <div className="prensa-container">
+            <h2 className="titulo-prensa">AGREGA UNA NOTICIA</h2>
+                <form onSubmit={handleSubmit} className="form-container">
+                    <input
+                        type="text"
+                        placeholder="Título"
+                        value={title}
+                        onChange={(e) => setTitle(e.target.value)}
+                        required
+                    />
+                    <textarea
+                        placeholder="Descripción"
+                        value={description}
+                        onChange={(e) => setDescription(e.target.value)}
+                        required
+                    />
+                    <input
+                        type="text"
+                        placeholder="URL de la imagen"
+                        value={url}
+                        onChange={(e) => setUrl(e.target.value)}
+                        required
+                    />
+                    <button type="submit">{editId ? 'Actualizar' : 'Crear'}</button>
+                </form>
+                <div id="news-container">
+                    {news.length > 0 ? (
+                        news.map((newsItem) => (
+                            <div key={newsItem.id} className="news-item">
+                                <h2>{newsItem.title}</h2>
+                                <p>{newsItem.description}</p>
+                                <img src={newsItem.image_url} alt={newsItem.title} className="news-image" />
+                                <button onClick={() => handleEdit(newsItem)}>Editar</button>
+                                <button onClick={() => handleDelete(newsItem.id)}>Eliminar</button>
+                            </div>
+                        ))
+                    ) : (
+                        <p>No hay noticias disponibles.</p>
+                    )}
+                </div>
             </div>
         </div>
     );
+    
+    
 };
 
 export default Prensa;

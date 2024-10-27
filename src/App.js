@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import axios from 'axios';
 import './App.css';
-import logo from './components/Logo.jpg'; 
-import About from './About'; 
-import Login from './Login'; 
+import logo from './components/Logo.jpg';
+import logo2 from './components/Logo-sin-letras.png';
+import About from './About';
+import Login from './Login';
 import Prensa from './Prensa';
 
 function App() {
@@ -50,11 +51,6 @@ function App() {
         fetchNews(keyword);
     };
 
-    useEffect(() => {
-        
-    }, []);
-
-    // Define la clase de la notificación en función del estado
     const notificationClass = error
         ? error.includes('servidor') ? 'server-error' : 'input-error'
         : 'success';
@@ -62,43 +58,45 @@ function App() {
     return (
         <Router>
             <div className="App">
-                {showNotification && (
-                    <div className={`notification ${notificationClass}`}>
-                        <p>{error || successMessage}</p>
-                    </div>
-                )}
                 <Routes>
                     <Route path="/about" element={<About />} />
                     <Route path="/login" element={<Login setIsAuthenticated={setIsAuthenticated} />} />
                     <Route path="/prensa" element={isAuthenticated ? <Prensa /> : <Navigate to="/login" />} />
-                    <Route 
-                        path="/" 
+                    <Route
+                        path="/"
                         element={
                             <>
                                 <div className="top-container">
                                     <button onClick={() => window.open('/about', '_blank')} className="side-button">About us</button>
-                                    <p style={{ display: 'inline-block', margin: '0 20px' }}>LM</p>
+                                    <img src={logo2} className="logo2" alt="Logo" />
                                     <button onClick={() => window.open('/login', '_blank')} className="side-button">Login</button>
                                 </div>
 
                                 <div className="logo">
                                     <img src={logo} alt="Logo LM News World" className="logo-image" />
                                 </div>
-                                <h1>LM News World</h1>
+                                <h1>-</h1>
                                 <div className="search-container">
-                                    <input 
-                                        type="text" 
-                                        id="keyword" 
+                                    <input
+                                        type="text"
+                                        id="keyword"
                                         value={keyword}
                                         onChange={(e) => setKeyword(e.target.value)}
                                         placeholder="Buscar noticias..."
                                     />
                                     <button id="searchBtn" onClick={handleSearch}>Buscar</button>
+                                    {showNotification && (
+                                        <span className={`notification ${notificationClass}`}>
+                                            {error || successMessage}
+                                        </span>
+                                    )}
                                 </div>
 
                                 <div id="news-container">
                                     {loading ? (
-                                        <p>Cargando noticias...</p>
+                                        <div className="loading-message">
+                                            <p>🌀 Cargando noticias...</p>
+                                        </div>
                                     ) : (
                                         news.map((article, index) => (
                                             <div key={index} className="news-item">
@@ -114,7 +112,7 @@ function App() {
                                     )}
                                 </div>
                             </>
-                        } 
+                        }
                     />
                 </Routes>
             </div>

@@ -1,0 +1,129 @@
+body {
+    background-color: #000000; 
+    color: #ffffff; 
+}
+
+.parent-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px; 
+}
+
+.header-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10px; 
+}
+
+.logo-image {
+    width: 100px; 
+    height: auto; 
+    
+}
+
+.prensa-container {
+    width: 100%; 
+    padding: 20px; 
+    background-color: #00000000; 
+    border-radius: 10px; 
+    margin-top: -220px; 
+    position: relative; 
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    gap: 10px; 
+    width: 100%; 
+    max-width: 400px; 
+    margin: 0 auto; 
+}
+
+.titulo-prensa {
+    background-color: #ff040400;
+    color: #9000ff; 
+    z-index: 1; 
+}
+
+.form-container input[type="text"],
+.form-container textarea {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 8px;
+    outline: none;
+    transition: border-color 0.3s ease;
+    width: 100%; 
+    background-color: #3d00ca13; 
+    color: #ffffff; 
+}
+
+.form-container input[type="text"] {
+    border: 2px solid #6f00ff85;
+}
+
+.form-container textarea {
+    border: 2px solid #6907fe8b;
+    min-height: 100px; 
+    resize: vertical; 
+}
+
+.form-container input[type="text"]:focus,
+.form-container textarea:focus {
+    border-color: #4caf4f75;
+}
+
+.form-container button[type="submit"] {
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    background: linear-gradient(45deg, #04a737, #19c0169a);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s;
+    width: 100%; 
+}
+
+.form-container button[type="submit"]:hover {
+    transform: scale(1.05);
+}
+
+input,
+textarea {
+    color: #ffffff; 
+}
+
+button {
+    padding: 10px 15px; 
+    font-size: 16px; 
+    font-weight: bold; 
+    border: none; 
+    border-radius: 8px; 
+    cursor: pointer; 
+    margin-right: 10px; 
+    transition: background 0.3s ease, transform 0.2s; 
+}
+
+button:first-of-type {
+    background: linear-gradient(45deg, #0ba7c6, #0a71a4); 
+    color: white;
+}
+
+button:first-of-type:hover {
+    border-bottom: 4%;
+    transform: scale(1.20); 
+}
+
+
+button:last-of-type {
+    background: linear-gradient(45deg, #f44336, #a61212); 
+    color: white; 
+}
+
+button:last-of-type:hover {
+    transform: scale(1.20); 
+}
