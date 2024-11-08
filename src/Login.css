@@ -7,20 +7,19 @@ body, html {
 
 .login-container {
     display: flex;
-    justify-content: flex-start; /* Cambiar a flex-start para alinear a la izquierda */
+    justify-content: flex-start; 
     align-items: center;
-    width: 60vw; /* Cambiar a un ancho más pequeño */
-    height: 80vh; /* Cambiar a una altura más pequeña */
+    width: 60vw; 
+    height: 80vh; 
     background-image: url('./components/fondologin.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 }
 
-/* Contenedores del formulario de login y registro */
 .login-form-container, .register-form-container {
-    width: 40%; /* Mantener el ancho como está o ajustarlo si es necesario */
-    max-width: 250px; /* Establecer un ancho máximo para hacerlo más pequeño */
+    width: 40%; 
+    max-width: 250px; 
     padding: 50px;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -37,12 +36,11 @@ body, html {
 .register-form-container {
     background-color: rgba(0, 0, 0, 0.815);
     margin-left: 335px;
-    border: 2px solid #6e04d151; /* Agregar un borde de 2px de ancho y color morado */
+    border: 2px solid #6e04d151; 
     border-radius: 8px; 
 }
 
 
-/* Estilos compartidos */
 h2 {
     margin-bottom: 20px;
     color: #6a00ff;
@@ -69,7 +67,6 @@ input {
     transition: background-color 0.3s;
 }
 
-/* Estilos específicos para los botones */
 .login-button2 {
     background-color: #007bff;
 }

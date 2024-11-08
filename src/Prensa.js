@@ -73,14 +73,13 @@ const Prensa = () => {
     };
 
     return (
-        <div className="parent-container"> {/* Contenedor principal */}
+        <div className="parent-container">
             <div className="header-container">
                 <img src={logo} alt="Logo LM News World" className="logo-image" />
-                
             </div>
-            
+
             <div className="prensa-container">
-            <h2 className="titulo-prensa">AGREGA UNA NOTICIA</h2>
+                <h2 className="titulo-prensa">AGREGA UNA NOTICIA</h2>
                 <form onSubmit={handleSubmit} className="form-container">
                     <input
                         type="text"
@@ -104,15 +103,18 @@ const Prensa = () => {
                     />
                     <button type="submit">{editId ? 'Actualizar' : 'Crear'}</button>
                 </form>
+
                 <div id="news-container">
                     {news.length > 0 ? (
                         news.map((newsItem) => (
-                            <div key={newsItem.id} className="news-item">
+                            <div key={newsItem.id} className="news-card">
                                 <h2>{newsItem.title}</h2>
                                 <p>{newsItem.description}</p>
                                 <img src={newsItem.image_url} alt={newsItem.title} className="news-image" />
-                                <button onClick={() => handleEdit(newsItem)}>Editar</button>
-                                <button onClick={() => handleDelete(newsItem.id)}>Eliminar</button>
+                                <div className="button-container">
+                                    <button onClick={() => handleEdit(newsItem)}>Actualizar</button>
+                                    <button onClick={() => handleDelete(newsItem.id)}>Eliminar</button>
+                                </div>
                             </div>
                         ))
                     ) : (
@@ -122,8 +124,6 @@ const Prensa = () => {
             </div>
         </div>
     );
-    
-    
 };
 
 export default Prensa;
