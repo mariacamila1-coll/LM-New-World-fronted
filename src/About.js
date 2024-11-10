@@ -39,9 +39,12 @@ function About() {
                         </div>
                     </a>
                 </section>
+                
             </div>
         </div>
     );
 }
+
+
 
 export default About;

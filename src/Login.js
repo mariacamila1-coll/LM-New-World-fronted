@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import fondoLogin from './components/fondologin2.png';
 
 const Form = ({ setIsAuthenticated }) => {
   const [loginEmail, setLoginEmail] = useState('');
@@ -9,7 +10,7 @@ const Form = ({ setIsAuthenticated }) => {
   const [registerEmail, setRegisterEmail] = useState('');
   const [registerPassword, setRegisterPassword] = useState('');
   const [username, setUsername] = useState('');
-  
+
   const navigate = useNavigate();
 
   const handleSubmitLogin = async (e) => {
@@ -37,7 +38,7 @@ const Form = ({ setIsAuthenticated }) => {
   };
 
   return (
-    <StyledWrapper>
+    <FullPageWrapper>
       <div className="wrapper">
         <div className="card-switch">
           <label className="switch">
@@ -105,28 +106,40 @@ const Form = ({ setIsAuthenticated }) => {
           </label>
         </div>
       </div>
-    </StyledWrapper>
+    </FullPageWrapper>
   );
 };
 
-const StyledWrapper = styled.div`
-
- display: flex;
+const FullPageWrapper = styled.div`
+  display: flex;
   justify-content: center;
   align-items: center;
-  height: 40vh;
+  height: 100vh; /* Ocupa toda la altura de la pantalla */
+  width: 100vw; /* Ocupa todo el ancho de la pantalla */
+  background-image: url(${fondoLogin});
+  background-size: 30%;
+  background-position: 75% 30px;
+  background-repeat: no-repeat;
 
-  
   .wrapper {
     --input-focus: #fff;
     --font-color: #fff;
     --font-color-sub: #fff;
-    --bg-color: rgba(120, 100, 255, 0.4);
+    --bg-color: rgba(120, 150, 654, 0.4);
     --bg-color-alt: #666;
     --main-color: #000;
-    --login-bg-color: rgba(140, 100, 250, 0.4); /* Color de fondo para el lado de login */
-    --register-bg-color:rgba(140, 100, 250, 0.4); /* Color de fondo para el lado de registro */
+    --login-bg-color: rgba(140, 30, 400, 0.7);
+    --register-bg-color: rgba(140, 30, 400, 0.7);
   }
+
+  .card-switch {
+    position: relative;
+    transform: translateY(-200px) translateX(-450%);;
+    background: rgba(0, 0, 0, 0.6); /* Fondo semi-transparente */
+    padding: 20px;
+    border-radius: 10px;
+  }
+
 
   .switch {
     transform: translateY(-200px);
@@ -311,7 +324,32 @@ const StyledWrapper = styled.div`
     box-shadow: 0px 0px 0px transparent;
     transform: translateY(4px);
   }
+
+  @media (min-width: 1200px) {
+    .card-switch {
+      max-width: 400px;
+      padding: 25px;
+    }
+
+    @media (max-width: 600px) {
+    .card-switch {
+      padding: 15px;
+      max-width: 90%;
+      transform: translateY(-150px) translateX(0);
+    }
+
+    @media (max-width: 768px) {
+    background-size: 50%; /* Fondo más grande para pantallas pequeñas */
+    background-position: center;
+  }
+
+  /* Media Query para pantallas grandes */
+  @media (min-width: 1024px) {
+    background-size: 25%; /* Fondo más pequeño para pantallas grandes */
+    background-position: 80% 40px; /* Ajuste de la posición del fondo */
+  }
     
+;
 `;
 
 export default Form;

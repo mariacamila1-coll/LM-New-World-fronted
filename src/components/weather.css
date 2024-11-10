@@ -1,0 +1,49 @@
+.weather-container {
+    background-color: #08010f;
+    padding: 10px 20px;  /* Reducir el padding vertical */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.555);
+    width: 100%;            /* Mantener el ancho en 100% */
+    max-width: 100%;        /* No limita el ancho máximo */
+    height: 30px;          /* Establece una altura fija */
+    text-align: center;     /* Centra el texto dentro del contenedor */
+    position: fixed;        /* Fija el contenedor en la pantalla */
+    bottom: 0;              /* Coloca el contenedor en la parte inferior */
+    left: 0;                /* Alinea el contenedor a la izquierda */
+    display: flex;          /* Utiliza flexbox para alinear el contenido */
+    justify-content: space-around;  /* Distribuye el contenido uniformemente */
+    align-items: center;    /* Alinea verticalmente el contenido dentro del contenedor */
+    z-index: 9999;          /* Asegura que esté encima de otros elementos */
+}
+
+.weather-container h2,
+.weather-container p,
+.weather-container .temperature,
+.weather-container .condition,
+.weather-container .humidity,
+.weather-container .wind {
+    margin: 0;             /* Elimina el margen para que el texto no se apile */
+    padding: 0 10px;       /* Agrega un poco de espacio entre los elementos */
+}
+
+.weather-container .temperature {
+    font-size: 24px;       /* Tamaño de fuente más pequeño */
+    font-weight: bold;
+}
+
+.weather-container .condition {
+    font-size: 16px;       /* Tamaño de fuente más pequeño */
+    color: #f5a623;
+}
+
+.weather-container .humidity,
+.weather-container .wind {
+    font-size: 14px;       /* Tamaño de fuente más pequeño */
+    color: #ffffff;
+    margin-top: 5px;
+}
+
+.weather-container .error {
+    color: red;
+    font-size: 14px;
+}

@@ -9,6 +9,7 @@ import Prensa from './Prensa';
 import Card from './components/Card';
 import Button from './components/Button'; 
 import './components/Carga.css';
+import Card2 from './components/tiempo';
 
 function App() {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -84,6 +85,7 @@ function App() {
                             <>
                                 <div className="top-container">
                                     <Button text="Nosotros" onClick={() => window.open('/about', '_blank')} />
+                                    
                                     <Button text="Acceso" onClick={() => window.open('/login', '_blank')} />
                                 </div>
 
@@ -91,8 +93,9 @@ function App() {
                                 <div className="logo">
                                     <img src={logo} alt="Logo LM News World" className="logo-image" />
                                 </div>
-                                <h1>-</h1>
-
+                                <div className="App">
+                                        <Card2/>
+                                        </div>
                                 <div className="search-wrapper">
                                     <input
                                         type="text"
@@ -102,6 +105,7 @@ function App() {
                                         placeholder="Buscar noticias..."
                                     />
                                     <button id="searchBtn" onClick={handleSearch}>Buscar</button>
+                                    
                                     {showNotification && (
                                         <span className={`notification ${notificationClass}`}>
                                             {error || successMessage}
@@ -111,58 +115,11 @@ function App() {
 
                                 <div id="news-container">
                                     {loading ? (
-                                        <div className="loading-message">
-                                            <div class="container">
-                                                <div class="top">
-                                                    <div class="square">
-                                                        <div class="square">
-                                                            <div class="square">
-                                                                <div class="square">
-                                                                    <div class="square"><div class="square">
-                                                                    </div></div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="bottom">
-                                                    <div class="square">
-                                                        <div class="square">
-                                                            <div class="square">
-                                                                <div class="square">
-                                                                    <div class="square"><div class="square">
-                                                                    </div></div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="left">
-                                                    <div class="square">
-                                                        <div class="square">
-                                                            <div class="square">
-                                                                <div class="square">
-                                                                    <div class="square"><div class="square">
-                                                                    </div></div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="right">
-                                                    <div class="square">
-                                                        <div class="square">
-                                                            <div class="square">
-                                                                <div class="square">
-                                                                    <div class="square"><div class="square">
-                                                                    </div></div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        <div class="textWrapper">
+                                        <p class="text">Loading...</p>
+                                        <div class="invertbox"></div>
+                                      </div>
+                                        
                                     ) : (
                                         <>
                                             {internalNews.map((article, index) => (
@@ -174,12 +131,17 @@ function App() {
                                         </>
                                     )}
                                 </div>
+                                
                             </>
                         }
+                        
                     />
+                    
                 </Routes>
             </div>
+            
         </Router>
+        
     );
 }
 
