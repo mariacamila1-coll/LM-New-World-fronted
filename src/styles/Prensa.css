@@ -80,7 +80,7 @@ body {
     font-size: 16px;
     font-weight: bold;
     color: #fff;
-    background: linear-gradient(45deg, #04a737, #19c0169a);
+    background: linear-gradient(45deg, #4b2175, #8010539a);
     border: none;
     border-radius: 8px;
     cursor: pointer;
@@ -120,7 +120,7 @@ button:first-of-type:hover {
 
 
 button:last-of-type {
-    background: linear-gradient(45deg, #f44336, #a61212); 
+    background: linear-gradient(45deg, #4b2175, #8010539a); 
     color: white; 
 }
 

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import './Prensa.css';
+import './styles/Prensa.css';
 import logo from './components/Logo.jpg';
 
 const Prensa = () => {
