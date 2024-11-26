@@ -121,6 +121,7 @@ const FullPageWrapper = styled.div`
   background-position: 75% 30px;
   background-repeat: no-repeat;
 
+  
   .wrapper {
     --input-focus: #fff;
     --font-color: #fff;
@@ -128,13 +129,14 @@ const FullPageWrapper = styled.div`
     --bg-color: rgba(120, 150, 654, 0.4);
     --bg-color-alt: #666;
     --main-color: #000;
-    --login-bg-color: rgba(140, 30, 400, 0.7);
-    --register-bg-color: rgba(140, 30, 400, 0.7);
+    --login-bg-color: rgba(140, 90, 400, 0.4);
+    --register-bg-color: rgba(140, 90, 400, 0.4);
   }
+    
 
   .card-switch {
     position: relative;
-    transform: translateY(-200px) translateX(-450%);;
+    transform: translateY(-150px) translateX(-300%);
     background: rgba(0, 0, 0, 0.6); /* Fondo semi-transparente */
     padding: 20px;
     border-radius: 10px;

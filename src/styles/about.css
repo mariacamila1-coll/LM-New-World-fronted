@@ -1,45 +1,54 @@
 .about-page {
-    height: 100%;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
+    margin-top: -2cm;
     background-color: #000000;
+    background-image: url('Logo-sin-letras.png');
+    background-size: 10%; 
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.8;
+    position: relative;
+    background-position: center 3%;
 }
+
 
 .about-page .about-container {
     text-align: center;
     color: #ffffff;
-    padding: 20px;
+    padding: 180px;
 }
 
-.about-page .about-container h2 {
-    font-size: 2.5em;
-    color: #8c52ff;
-    background: linear-gradient(90deg, #8c52ff, #bd5affa8);
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
-    text-transform: uppercase;
-    margin-bottom: 20px;
-    font-weight: bold;
-    text-shadow: 0 2px 10px rgba(138, 43, 226, 0.8);
-    padding: 10px;
-    border-radius: 10px;
-}
 
 .about-page .equipo {
+    border-top: 5px solid #ccc; 
+    border-left: 5px solid #ccc; 
+    border-right: 5px solid #ccc; 
+    border-bottom: 5px solid #ccc;
+    padding-top: 30px; 
+    padding-left: 30px; 
+    padding-right: 30px; 
+    padding-bottom: 30px;
+    margin-top: -30px; 
+    margin-left: -30px; 
+    margin-right: -30px;
+    margin-bottom: -30px; 
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    gap: 10px;
+    gap: 100px;
+    transition: transform 0.3s;
+    animation: neon-glow 3s infinite alternate ease-in-out;
 }
+
 
 .about-page .tarjeta {
     background-color: rgba(61, 0, 202, 0.1);
     border: 1px solid #94a182;
     border-radius: 20px;
     width: 250px;
-    padding: 20px;
+    padding: 10px;
     text-align: center;
     color: #ffffff;
     text-decoration: none;
@@ -49,24 +58,24 @@
 
 .about-page .tarjeta:hover {
     transform: scale(1.05);
-    box-shadow: 0 0 10px rgba(255, 215, 0, 0.8), 0 0 20px rgba(255, 215, 0, 0.6);
+    box-shadow: 0 0 10px rgba(140, 0, 255, 0.8), 0 0 20px rgba(140, 0, 255, 0.6);
 }
 
 @keyframes neon-glow {
     0% {
-        box-shadow: 0 0 5px rgba(255, 215, 0, 0.2), 
-                    0 0 10px rgba(255, 215, 0, 0.4), 
-                    0 0 15px rgba(255, 215, 0, 0.6);
+        box-shadow: 0 0 5px rgba(106, 0, 255, 0.2), 
+                    0 0 10px rgba(149, 0, 255, 0.4), 
+                    0 0 15px rgba(128, 0, 255, 0.6);
     }
     50% {
-        box-shadow: 0 0 15px rgba(255, 215, 0, 0.7), 
-                    0 0 30px rgba(255, 217, 0, 0.377), 
+        box-shadow: 0 0 15px rgba(140, 0, 255, 0.7), 
+                    0 0 30px rgba(162, 0, 255, 0.377), 
                     0 0 45px rgba(212, 255, 0, 0);
     }
     100% {
-        box-shadow: 0 0 5px rgba(255, 215, 0, 0.2), 
-                    0 0 10px rgba(255, 215, 0, 0.4), 
-                    0 0 15px rgba(255, 215, 0, 0.6);
+        box-shadow: 0 0 5px rgba(144, 0, 255, 0.2), 
+                    0 0 10px rgba(111, 0, 255, 0.4), 
+                    0 0 15px rgba(140, 0, 255, 0.6);
     }
 }
 
@@ -84,4 +93,47 @@
     margin: 1px;
 }
 
+@media (max-width: 1024px) {
+    .about-page .equipo {
+        gap: 30px; 
+    }
 
+    .about-page .tarjeta {
+        width: 220px; 
+    }
+
+    .about-page .logo-img {
+        width: 150px; 
+        height: 75px;
+    }
+}
+
+@media (max-width: 768px) {
+    .about-page .equipo {
+        gap: 20px; 
+    }
+
+    .about-page .tarjeta {
+        width: 180px; 
+    }
+
+    .about-page .logo-img {
+        width: 120px; 
+        height: 60px;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-page .equipo {
+        gap: 10px; 
+    }
+
+    .about-page .tarjeta {
+        width: 150px; 
+    }
+
+    .about-page .logo-img {
+        width: 100px; 
+        height: 50px;
+    }
+}

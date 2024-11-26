@@ -46,7 +46,7 @@ const Weather = () => {
     // Cambiar la ciudad cada 10 segundos
     const interval = setInterval(() => {
       setCityIndex((prevIndex) => (prevIndex + 1) % cities.length); // Ciclo entre las ciudades
-    }, 5000);  // 5 segundos
+    }, 10000);  // 10 segundos
 
     // Actualizar la hora cada segundo
     const timeInterval = setInterval(updateTime, 1000);
