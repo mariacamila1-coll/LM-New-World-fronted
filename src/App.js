@@ -2,13 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import axios from 'axios';
 import './styles/App.css';
-import logo from './components/Logo.jpg';
-import About from './About';
-import Login from './Login';
-import Prensa from './Prensa';
+import logo from './assets/Logo.jpg';
+import About from './pages/About';
+import Login from './pages/Login';
+import Prensa from './pages/Prensa';
 import Card from './components/Card';
 import Button from './components/Button'; 
-import './components/Carga.css';
+import './styles/Carga.css';
 import Card2 from './components/tiempo';
 
 function App() {

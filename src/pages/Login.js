@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import fondoLogin from './components/fondologin2.png';
+import fondoLogin from '../assets/fondologin2.png';
 
 const Form = ({ setIsAuthenticated }) => {
   const [loginEmail, setLoginEmail] = useState('');
@@ -17,12 +17,12 @@ const Form = ({ setIsAuthenticated }) => {
     e.preventDefault();
     try {
       const response = await axios.post('http://localhost:5000/api/login', { email: loginEmail, password: loginPassword });
-      alert(response.data.message || 'Login successful');
+      alert(response.data.message || 'Ingreso exitoso');
       setIsAuthenticated(true);
       navigate('/prensa');
     } catch (error) {
       console.error(error);
-      alert(error.response?.data?.error || 'An error occurred during login');
+      alert(error.response?.data?.error || 'Ocurrió un error al ingresar.');
     }
   };
 
@@ -30,7 +30,7 @@ const Form = ({ setIsAuthenticated }) => {
     e.preventDefault();
     try {
       const response = await axios.post('http://localhost:5000/api/register', { username, email: registerEmail, password: registerPassword });
-      alert(response.data.message || 'Registration successful');
+      alert(response.data.message || 'Registro exitoso');
     } catch (error) {
       console.error(error);
       alert(error.response?.data?.error || 'An error occurred during registration');

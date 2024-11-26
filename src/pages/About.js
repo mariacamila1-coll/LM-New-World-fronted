@@ -1,10 +1,10 @@
 import React from 'react';
-import './components/about.css';
+import '../styles/about.css';
 
 // Importar las imágenes
-import lauraImg from './components/laura.png';
-import lorenzoImg from './components/lorenzo.png';
-import camilaImg from './components/camila.png';
+import lauraImg from '../assets/laura.png';
+import lorenzoImg from '../assets/lorenzo.png';
+import camilaImg from '../assets/camila.png';
 
 function About() {
     return (

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import './styles/Prensa.css';
-import logo from './components/Logo.jpg';
+import '../styles/Prensa.css';
+import logo from '../assets/Logo.jpg';
 
 const Prensa = () => {
     const [news, setNews] = useState([]);
