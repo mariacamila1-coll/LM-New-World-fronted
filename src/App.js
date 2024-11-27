@@ -7,7 +7,7 @@ import About from './pages/About';
 import Login from './pages/Login';
 import Prensa from './pages/Prensa';
 import Card from './components/Card';
-import Button from './components/Button'; 
+import Button from './components/Button';
 import './styles/Carga.css';
 import Card2 from './components/tiempo';
 
@@ -21,10 +21,11 @@ function App() {
     const [successMessage, setSuccessMessage] = useState('');
     const [showNotification, setShowNotification] = useState(false);
 
+    // Obtener noticias internas desde el servidor
     useEffect(() => {
         const fetchInternalNews = async () => {
             try {
-                const response = await axios.get('http://localhost:5000/api/internal-news');
+                const response = await axios.get('http://localhost:5000/api/news');
                 setInternalNews(response.data);
             } catch (error) {
                 console.error('Error fetching internal news:', error);
@@ -34,6 +35,7 @@ function App() {
         fetchInternalNews();
     }, []);
 
+    // Obtener noticias externas desde el servidor
     const fetchExternalNews = async (searchKeyword) => {
         setLoading(true);
         setError('');
@@ -85,17 +87,15 @@ function App() {
                             <>
                                 <div className="top-container">
                                     <Button text="Nosotros" onClick={() => window.open('/about', '_blank')} />
-                                    
                                     <Button text="Acceso" onClick={() => window.open('/login', '_blank')} />
                                 </div>
-
 
                                 <div className="logo">
                                     <img src={logo} alt="Logo LM News World" className="logo-image" />
                                 </div>
                                 <div className="App">
-                                        <Card2/>
-                                        </div>
+                                    <Card2 />
+                                </div>
                                 <div className="search-wrapper">
                                     <input
                                         type="text"
@@ -105,7 +105,7 @@ function App() {
                                         placeholder="Buscar noticias..."
                                     />
                                     <button id="searchBtn" onClick={handleSearch}>Buscar</button>
-                                    
+
                                     {showNotification && (
                                         <span className={`notification ${notificationClass}`}>
                                             {error || successMessage}
@@ -115,33 +115,47 @@ function App() {
 
                                 <div id="news-container">
                                     {loading ? (
-                                        <div class="textWrapper">
-                                        <p class="text">Loading...</p>
-                                        <div class="invertbox"></div>
-                                      </div>
-                                        
+                                        <div className="textWrapper">
+                                            <p className="text">Loading...</p>
+                                            <div className="invertbox"></div>
+                                        </div>
                                     ) : (
                                         <>
-                                            {internalNews.map((article, index) => (
-                                                <Card key={index} article={article} isInternal />
-                                            ))}
-                                            {externalNews.map((article, index) => (
-                                                <Card key={`ext-${index}`} article={article} />
-                                            ))}
+                                            {/* Mostrar noticias internas */}
+                                            {internalNews.length > 0 ? (
+                                                internalNews.map((newsItem) => (
+                                                    <div key={newsItem.id} className="news-card2">
+                                                        <img src={newsItem.image_url} alt={newsItem.title} className="news-image" />
+                                                        <div className="news-content">
+                                                            <h2 className="news-title">{newsItem.title}</h2>
+                                                            <p className="news-description">{newsItem.description}</p>
+                                                        </div>
+                                                    </div>
+                                                ))
+                                            ) : (
+                                                <p>No hay noticias internas disponibles.</p>
+                                            )}
+
+
+
+
+                                            {/* Mostrar noticias externas */}
+                                            {externalNews.length > 0 ? (
+                                                externalNews.map((article, index) => (
+                                                    <Card key={`ext-${index}`} article={article} />
+                                                ))
+                                            ) : (
+                                                <p></p>
+                                            )}
                                         </>
                                     )}
                                 </div>
-                                
                             </>
                         }
-                        
                     />
-                    
                 </Routes>
             </div>
-            
         </Router>
-        
     );
 }
 

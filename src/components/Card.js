@@ -6,17 +6,18 @@ const Card = ({ article }) => {
 
   return (
     <StyledWrapper>
-      <div className="card" onClick={() => window.open(article.url, '_blank')}>
-        <img src={article.imageUrl} alt="Noticia" className="card-image" />
-        <div className="card-content">
-          <h2 className="card-title">{article.title || "Título desconocido"}</h2>
-          <p className="card-description">
+      <div className="news-card" onClick={() => window.open(article.url, '_blank')}>
+        <img src={article.imageUrl} alt="Noticia" className="news-image" />
+        <div className="news-content">
+          <h2 className="news-title">{article.title || "Título desconocido"}</h2>
+          <p className="news-description">
             {article.description || "Descripción no disponible"}
           </p>
         </div>
       </div>
     </StyledWrapper>
   );
+  
 }
 
 const StyledWrapper = styled.div`
@@ -77,12 +78,27 @@ const StyledWrapper = styled.div`
   .card-description {
     font-size: 16px; /* Aumentar el tamaño de la descripción */
     color: #fff; /* Color blanco para la descripción */
-    overflow: hidden; /* Evita desbordamiento */
-    display: -webkit-box;
-    -webkit-line-clamp: 5; /* Limita a 5 líneas para más espacio */
-    -webkit-box-orient: vertical;
-    max-width: 100%; /* Limita el ancho */
     text-align: center; /* Centra el texto */
+    overflow-y: auto; /* Permite la barra de desplazamiento cuando el texto es demasiado largo */
+    max-height: 60%; /* Limita la altura del área donde se muestra el texto */
+    padding: 10px; /* Agrega algo de espacio alrededor del texto */
+    margin-top: 10px; /* Alinea el texto debajo del título */
+    width: 100%; /* Asegura que ocupe el ancho total disponible */
+  }
+
+  /* Estilo de la barra de desplazamiento personalizada */
+  .card-description::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  .card-description::-webkit-scrollbar-thumb {
+    background-color: #8c52ff; /* Color de la barra */
+    border-radius: 10px; /* Redondeo de la barra */
+  }
+
+  .card-description::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.2); /* Color de la pista */
+    border-radius: 10px; /* Redondeo de la pista */
   }
 
   .card:hover {
@@ -100,5 +116,6 @@ const StyledWrapper = styled.div`
     color: #fff; /* Asegura que el texto sea blanco al mostrar el contenido */
   }
 `;
+
 
 export default Card;

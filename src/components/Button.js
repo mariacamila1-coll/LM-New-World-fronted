@@ -21,6 +21,7 @@ const StyledWrapper = styled.div`
     padding: 0;
     border: none;
     cursor: pointer;
+    
   }
 
   /* button styling */

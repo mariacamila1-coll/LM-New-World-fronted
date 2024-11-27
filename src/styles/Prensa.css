@@ -135,9 +135,25 @@ button:last-of-type:hover {
     margin: 16px; 
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); 
     transition: transform 0.2s; 
+    max-height: 400px;
+    overflow: auto; 
+}
+.news-card2 {
+    border: 1px solid #d0ff00; 
+    border-radius: 8px; 
+    padding: 16px; 
+    margin: 16px; 
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); 
+    transition: transform 0.2s; 
+    max-height: 400px; 
+    overflow: auto; 
 }
 
 .news-card:hover {
+    transform: scale(1.02); 
+}
+
+.news-card2:hover {
     transform: scale(1.02); 
 }
 
@@ -153,3 +169,44 @@ button:last-of-type:hover {
 .button-container button {
     margin-right: 8px; 
 }
+
+.news-card::-webkit-scrollbar {
+    width: 8px; 
+  }
+  
+  .news-card::-webkit-scrollbar-thumb {
+    background-color: #8c52ff; 
+    border-radius: 10px; 
+  }
+  
+  .news-card2::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.2); 
+    border-radius: 10px;
+  }
+
+  .news-card2::-webkit-scrollbar {
+    width: 8px; 
+  }
+  
+  .news-card2::-webkit-scrollbar-thumb {
+    background-color: #8c52ff; 
+    border-radius: 10px; 
+  }
+  
+  .news-card2::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.2); 
+    border-radius: 10px;
+  }
+  
+
+  .news-card {
+    overflow: auto; 
+    max-height: 300px; 
+  }
+
+  .news-card2 {
+    overflow: auto; 
+    max-height: 300px; 
+  }
+  
+  

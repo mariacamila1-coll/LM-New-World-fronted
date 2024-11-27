@@ -1,15 +1,11 @@
 import React from 'react';
 import '../styles/about.css';
 
-// Importar las imágenes
-src/pages/About.js
+
 import lauraImg from '../assets/laura.png';
 import lorenzoImg from '../assets/lorenzo.png';
 import camilaImg from '../assets/camila.png';
-import lauraImg from './components/laura.png';
-import lorenzoImg from './components/lorenzo.png';
-import camilaImg from './components/camila.png';
-import Card2 from './components/tiempo';
+import Card2 from '../components/tiempo';
 
 function About() {
     return (
